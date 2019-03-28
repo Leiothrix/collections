@@ -10,26 +10,38 @@ import java.util.TreeMap;
  * PS: You may say that I'm a dreamer.But I'm not the only one.
  */
 public class MapTest {
+
+    private void treeMap(){
+        Map<String, String> treeMap = new TreeMap<>();
+
+        treeMap.put("b", "0");
+        treeMap.put("c", "1");
+        treeMap.put("a", "2");
+
+        Iterator<String> iterator = treeMap.keySet().iterator();
+
+        for(; iterator.hasNext(); ){
+            System.out.println("NextTreeMapElement = " + iterator.next());
+        }
+    }
+
+    private void linkedMap(){
+        Map<String, String> linkedMap = new LinkedHashMap<>();
+
+        linkedMap.put("b", "0");
+        linkedMap.put("c", "1");
+        linkedMap.put("a", "2");
+
+        Iterator<String> iterator = linkedMap.keySet().iterator();
+
+        for (; iterator.hasNext(); ){
+            System.out.println("NextLinkedHashMapElement = " + iterator.next());
+        }
+    }
     public static void main(String[] args) {
-        Map<String,String> treeMap = new TreeMap<>();
-        Map<String,String> linkedMap = new LinkedHashMap<>();
-
-        treeMap.put("b",null);
-        treeMap.put("c",null);
-        treeMap.put("a",null);
-
-        for (Iterator<String> iter = treeMap.keySet().iterator(); iter.hasNext();){
-            System.out.println("TreeMap=" + iter.next());
-        }
-
-        System.out.println("----------分割线---------");
-
-        linkedMap.put("b",null);
-        linkedMap.put("c",null);
-        linkedMap.put("a",null);
-
-        for (Iterator<String> iter = linkedMap.keySet().iterator();iter.hasNext();){
-            System.out.println("LinkedHashMap=" + iter.next());
-        }
+        MapTest mapTest = new MapTest();
+        mapTest.treeMap();
+        System.out.println("------------------------------------------------");
+        mapTest.linkedMap();
     }
 }
